@@ -72,8 +72,7 @@ Site.view.Panorama = (function () {
 
                 var material = new THREE.MeshBasicMaterial({
                     map: THREE.ImageUtils.loadTexture(imageUrl),
-                    overdraw: false,
-                    wireframe: false
+                    overdraw: false
                 });
 
                 mesh = new THREE.Mesh(geometry, material);
@@ -182,8 +181,11 @@ Site.view.Panorama = (function () {
         console.log(_route.points);
 
         if (_route.points && _route.points.length > 2) {
-            var p1 = 'images/pano/' + _route.points[0].panorama[0].linkage + ".jpg";
-            var p2 = 'images/pano/' + _route.points[1].panorama[0].linkage + ".jpg";
+            
+            var i1 = 1,
+                i2 = 1,
+                p1 = 'images/pano/' + _route.points[i1].panorama[0].linkage + ".jpg",
+                p2 = 'images/pano/' + _route.points[i2].panorama[0].linkage + ".jpg";
 
             _pan1 = _panorama(pan1Canvas, _pan1Container, w, h,true);
             _pan1.init(p1);
