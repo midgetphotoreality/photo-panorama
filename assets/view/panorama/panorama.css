@@ -32,10 +32,6 @@
     padding: 3px;
 }
 
-#pan1Info{
-    min-height: 100px;
-}
-
-#pan2Info{
+#pan1Info, #pan2Info, #pan3Info{
     min-height: 100px;
 }

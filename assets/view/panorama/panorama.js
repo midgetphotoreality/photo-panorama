@@ -157,6 +157,10 @@ Site.view.Panorama = (function () {
         img = document.createElement('img');
         img.src = pan2Canvas.toDataURL("image/jpeg");
         pan2ContainerCopy.appendChild(img);
+        
+        img = document.createElement('img');
+        img.src = pan3Canvas.toDataURL("image/jpeg");
+        pan3ContainerCopy.appendChild(img);
         //document.getElementById('pan1ImageCopy').src = pan1Canvas.toDataURL("image/jpeg");
         //document.getElementById('pan2ImageCopy').src = pan2Canvas.toDataURL("image/jpeg");
 
