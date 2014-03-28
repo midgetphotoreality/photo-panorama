@@ -1,0 +1,23 @@
+#pan1{
+    position: absolute;
+    top: 350px;
+    left:320px;
+}
+
+#pan2{
+    position: absolute;
+    top: 350px;
+    left:650px;
+}
+
+.panoramaControls{
+    position: absolute;
+    left:320px;
+    top:320px;
+    min-width: 600px;
+}
+.panoramaControls a{
+    border: 1px solid black;
+    padding: 3px;
+    
+}

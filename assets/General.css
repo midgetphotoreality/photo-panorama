@@ -1,0 +1,551 @@
+
+.btns {
+
+    cursor: pointer;
+
+    -webkit-touch-callout: none;
+
+    -webkit-user-select: none;
+4
+    -khtml-user-select: none;
+
+    -moz-user-select: none;
+
+    -ms-user-select: none;
+
+    user-select: none;
+
+}
+
+.levelMenu {
+
+    position: absolute;
+
+    left: 0px;
+
+    top: 0px;
+
+}
+
+.levelOverlay {
+
+    position: absolute;
+
+    left: 0px;
+
+    top: 0px;
+
+}
+
+.directionInfo {
+
+    position: absolute;
+
+    top: 85px;
+
+    left: 150px;
+
+}
+
+#logoPrint {
+
+    display: none;
+
+}
+
+#versionText {
+
+    position: absolute;
+
+    top: 798px;
+
+    left: 10px;
+
+}
+
+body {
+
+    font-family: "Arial", Times, serif;
+
+}
+
+.infoContainer {
+
+    position: relative;
+
+}
+
+.infoOpposite {
+
+    position: absolute;
+
+}
+
+.infoOppositeN {
+
+    left: 480px;
+
+    top: 16px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+.infoOppositeS {
+
+    position: absolute;
+
+    top: -25px;
+
+    left: 190px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+.infoLocation {
+
+    position: absolute;
+
+}
+
+.infoLocationN {
+
+    left: 90px;
+
+    top: 380px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+.infoLocationS {
+
+    position: absolute;
+
+    top: -25px;
+
+    left: 380px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+.infoEntranceLabel {
+
+    position: absolute;
+
+    border: 1px solid;
+
+    border-radius: 5px;
+
+    border-color: #000000;
+
+    background-color: #00aeef;
+
+    padding: 5px;
+
+    color: white;
+
+}
+
+.infoEntranceLabelN {
+
+    left: 480px;
+
+    top: 370px;
+
+    width: 96px;
+
+    font-weight: bold;
+
+}
+
+.infoEntranceLabelS {
+
+    left: 190px;
+
+    position: absolute;
+
+    top: 350px;
+
+    width: 84px;
+
+}
+
+.infoType {
+
+    position: absolute;
+
+}
+
+.infoTypeN {
+
+    position: absolute;
+
+    top: 16px;
+
+    left: 130px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+.infoTypeS {
+
+    position: absolute;
+
+    top: 350px;
+
+    left: 440px;
+
+    width: 300px;
+
+    font-weight: bold;
+
+}
+
+#logo {
+
+    left: 18px;
+
+    position: absolute;
+
+    top: 9px
+
+}
+
+#description {
+
+    left: 5px;
+
+    position: absolute;
+
+    top: 102px;
+
+    width: 252px;
+
+    font-size: 13px;
+
+}
+
+#selector {
+
+    position: absolute;
+
+    top: 82px;
+
+    left: 12px;
+
+}
+
+#printText {
+
+    position: absolute;
+
+    top: 0px;
+
+    left: 80px;
+
+    width: 300px;
+
+}
+
+#print {
+
+    left: 360px;
+
+    position: absolute;
+
+    top: 27px;
+
+    display: none;
+
+}
+
+#legenda {
+
+    position: absolute;
+
+    top: 480px;
+
+    left: 12px;
+
+}
+
+#routeChoice {
+
+    position: absolute;
+
+    left: 500px;
+
+    top: 100px;
+
+}
+
+div.maps {
+
+    left: 364px;
+
+    position: absolute;
+
+    top: 39px;
+
+}
+
+.ontzichtbaar {
+
+    display: none;
+
+}
+
+div.labelMapCurrent {
+
+    border: 2px solid;
+
+}
+
+#labelMap1Layer {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+#labelMap1Desc {
+
+    font-size: 15px;
+
+    position: relative;
+
+    top: 10px;
+
+}
+
+div.labelMap1 {
+
+    color: #353535;
+
+    height: 85px;
+
+    left: 342px;
+
+    padding: 10px;
+
+    position: absolute;
+
+    top: 0px;
+
+    width: 300px;
+
+}
+
+#labelMap2Layer {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+}
+
+#labelMap2Desc {
+
+    font-size: 15px;
+
+    position: relative;
+
+    top: 10px;
+
+}
+
+div.labelMap2 {
+
+    color: #353535;
+
+    height: 85px;
+
+    left: 700px;
+
+    padding: 10px;
+
+    position: absolute;
+
+    top: 0px;
+
+    width: 300px;
+
+}
+
+div.topLabel {
+
+    display: none;
+
+}
+
+div.map {
+
+    position: relative;
+
+}
+
+div.map1 {
+
+    /*
+	transform: rotate(180deg);
+	/* IE 9 * /
+	-ms-transform: rotate(180deg);
+	/* Safari and Chrome * /
+	-webkit-transform: rotate(180deg);
+	*/
+
+}
+
+div.map2 {
+
+    /*
+	transform: rotate(180deg);
+	/* IE 9 * /
+	-ms-transform: rotate(180deg);
+	/* Safari and Chrome * /
+	-webkit-transform: rotate(180deg);
+	*/
+
+    top: 0px;
+
+    position: absolute;
+
+    left: 300px;
+
+}
+
+.mapFloor {
+
+    position: relative;
+
+    top: 0px;
+
+    left: 0px;
+
+}
+
+.mapContent {
+
+    position: absolute;
+
+    top: 0px;
+
+    left: 0px;
+
+}
+
+.mapImage {
+
+    position: relative;
+
+    top: 0px;
+
+    left: 0px;
+
+}
+
+.mapArrow {
+
+    width: 0px;
+
+    height: 0px;
+
+}
+
+span.mapLabelStart {
+
+    color: black;
+
+    display: inline-block;
+
+    white-space: nowrap;
+
+}
+
+span.mapLabelEnd {
+
+    padding: 2px;
+
+    color: white;
+
+    background-color: #353535;
+
+    display: inline-block;
+
+    white-space: nowrap;
+
+}
+
+.tooltip {
+
+    display: none;
+
+}
+
+.tooltip {
+
+    display: none;
+
+}
+
+.tooltipInner {
+
+    display: none;
+
+}
+
+.tooltip span {
+
+    display: none;
+
+}
+
+/*
+.tooltip {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	padding-bottom: 13px;
+	background: url("../images/tooltip_bg.png") bottom right no-repeat;
+	position: absolute;
+}
+.tooltip {
+	display: block;
+	position: absolute;
+}
+.tooltipInner {
+	display: inline-block;
+	width: auto;
+	height: auto;
+	min-width: 100px;
+	padding-bottom: 13px;
+	bottom: 10px;
+	right: -50px;
+	background: url("../images/tooltip_bg.png") bottom right no-repeat;
+	position: absolute;
+}
+.tooltip span {
+	display: block;
+	padding: 10px 10px 10px 10px;
+	color: #FFFFFF;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background: rgba(0, 0, 0, 0.89);
+}
+*/

@@ -1,0 +1,84 @@
+#menu{
+   
+}
+
+.menuHolder{
+    position: relative;
+    top:0px;
+    left:0px;
+}
+#menuTop{
+    background-color: #333333;
+    height: 40px;
+    
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 300px;
+    color: white;
+    font-size: 28px
+}
+#menuLine{
+	position: absolute;
+	left: 0px;
+    top: 40px;
+	width: 300px;
+	height:1px;
+	background-color:#EEEEEE;
+}
+
+div.menuContainer {
+	position: absolute;
+	left: 0px;
+    top: 41px;
+	width: 300px;
+	background-color: #333333;
+	font-family: "Arial", Times, serif
+}
+
+div.menutItemContainer {
+	display: none;
+	position: absolute;
+	left: 30px;
+}
+div.menuItemSelected {
+	background-color: #00aeef;
+}
+div.menuItemDeSelected {
+	background-color: #333333;
+}
+div.menuItemLetter {
+	cursor: pointer;
+    
+	color: white;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    vertical-align: middle;
+    width: 30px;
+    
+    font-size: 26px;
+	/*
+	width: 30px;
+	height: 30px;
+	color: white;
+	size: 208x;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 30px;
+	font-weight: bold;
+	*/
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: pointer;
+}
+div.menuRouteItem {
+	cursor: pointer;
+	border: 1px solid;
+	background-color: #d5d5d5;
+	width: 267px;
+}

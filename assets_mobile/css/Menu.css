@@ -1,0 +1,79 @@
+/*_MENU_______________________________________________________________________________*/
+#Menu {
+	display:block; width:100%; height:110px; position:absolute; top:0px; left:0px;
+}
+div.menuLogo {
+	display:block; width:193px; height:71px; position:absolute; top:20px; left:10px;
+	background-image:url("images/logo-azm.gif");
+}
+div.menuTitle {
+	display:block; height:25px; position:relative; top:0px; left:0px; margin:110px 10px 0 10px;
+	font-size:14px; font-weight:bold; line-height:25px;
+}
+/*div.menuButtonsInLine {
+	display:block; height:30px; position:relative; top:0px; left:0px;
+}
+
+div.menuButtonSmall:hover { background-color:#009BDC; }
+div.menuButtonSmall {
+	display:block; width:auto; height:19px; position:relative; float:left; margin-right:5px; padding:0 5px;
+	font-weight:bold; color:#FFFFFF; line-height:19px;
+	background-color:#999999;
+	cursor:pointer;
+}
+div.menuButtonBig:hover { background-color:#009BDC; }
+div.menuButtonBig {
+	display:block; width:auto; height:30px; position:relative; float:none; margin:10px 10px 10px 10px; padding:0 5px;
+	font-weight:bold; color:#FFFFFF; line-height:30px;
+	background-color:#999999;
+	cursor:pointer;
+}*/
+
+div.menuButtonPlattegrondIcon {
+	position:absolute; top:100px; right:10px;
+	display:none; width:30px; height:30px;
+	background-image:url("images/menu_icon_plattegrond.png");
+}
+
+div.menuButtonReisContainerWrapper {
+	display:block; width:auto; height:30px; position:relative; margin:0 9px;}
+
+div.menuButtonReisContainer {
+	display:table; table-layout:fixed; width:100%; height:auto; position:relative; top:0px; left:0px;
+}
+
+div.menuButtonReisContainer a {
+	display:table-cell;
+	height:100%;
+}
+
+div.menuButtonReisBig:hover { background-color:#009BDC; }
+div.menuButtonReisBig {
+	display:block; /*width:auto;*/ height:40px; position:relative; margin:0px 1px 0 1px; padding:1px 5px 0 30px;
+	font-weight:bold; color:#FFFFFF; line-height:40px;
+	background-color:#999999; background-position:4px center; background-repeat:no-repeat; background-size:20px 20px;
+	cursor:pointer;
+	overflow:hidden;
+}
+div.menuButtonReisAuto  { background-image:url("images/menu_icon_car.png"); }
+div.menuButtonReisTaxi { background-image:url("images/menu_icon_bus.png");}
+div.menuButtonReisTrein { background-image:url("images/menu_icon_train.png"); }
+
+.menuButtonSelected {background-color:#009BDC!important;}
+
+.menuRouteContainerTop {
+	width:100%; position:relative; top:20px;
+}
+
+
+
+.menuRouteContainer {
+	width:100%; position:relative; top:20px;
+}
+.menuRouteContainerInner {
+	margin:0 10px 0 10px;
+}
+.menuRouteList {
+	width:100%; height:30px;
+}
+
