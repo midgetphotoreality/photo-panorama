@@ -1,9 +1,10 @@
 Site.view.Panorama = (function () {
     var _divAsset,
-        _pan1, _pan2,
-        _pan1Container, _pan2Container,
-        pan1ContainerCopy, pan2ContainerCopy,
-        pan1Canvas, pan2Canvas,
+        _pan1, _pan2,_pan3,
+        _pan1Container, _pan2Container,_pan3Container,
+        pan1ContainerCopy, pan2ContainerCopy,pan3ContainerCopy,
+        pan1Canvas, pan2Canvas,pan3Canvas,
+        pan1Info,pan2Info,pan3Info,
         //pan1CanvasCopy, pan2CanvasCopy,
         _route,
         btnSnapShot, btnClose,
@@ -39,6 +40,8 @@ Site.view.Panorama = (function () {
             _w = width,
             _h = height,
             webgl = webgl,
+            _infoScreen = false,
+            _overdraw = false,
             _onPanoMouseDown = function (event) {
                 event.preventDefault();
 
@@ -72,7 +75,7 @@ Site.view.Panorama = (function () {
 
                 var material = new THREE.MeshBasicMaterial({
                     map: THREE.ImageUtils.loadTexture(imageUrl),
-                    overdraw: false
+                    overdraw: _overdraw
                 });
 
                 mesh = new THREE.Mesh(geometry, material);
@@ -100,6 +103,11 @@ Site.view.Panorama = (function () {
                 lat = Math.max(-85, Math.min(85, lat));
                 phi = THREE.Math.degToRad(90 - lat);
                 theta = THREE.Math.degToRad(lon);
+                
+                if(_infoScreen){
+                    _infoScreen.innerHTML = "lat:"+lat+",<br/>degrees:"+lon+",<br/>phi:"+phi+",<br/>theta:"+theta;
+                    
+                }
 
                 camera.target.x = 500 * Math.sin(phi) * Math.cos(theta);
                 camera.target.y = 500 * Math.cos(phi);
@@ -121,7 +129,9 @@ Site.view.Panorama = (function () {
                 },
                 animate: function () {
                     _animate()
-                }
+                },
+                infoScreen:function(elem){_infoScreen = elem},
+                overdraw:function(){if(arguments.length>0){_overdraw=arguments[0]}else{return _overdraw}}
             }
         return _public;
     }
@@ -155,6 +165,9 @@ Site.view.Panorama = (function () {
         btnSnapShot.onclick = function () {
             _snapShot();
         }
+        btnClose.onclick = function(){
+            Site.Setup.level.overlay.close();
+        }
     }
 
     /*__CORE_FUNCTIONS________________________________________________________________________________________________*/
@@ -165,11 +178,17 @@ Site.view.Panorama = (function () {
 
         _pan1Container = document.getElementById("pan1Container");
         _pan2Container = document.getElementById("pan2Container");
+        _pan3Container = document.getElementById("pan3Container");
         pan1ContainerCopy = document.getElementById("pan1ContainerCopy");
         pan2ContainerCopy = document.getElementById("pan2ContainerCopy");
+        pan3ContainerCopy = document.getElementById("pan3ContainerCopy");
+        pan1Info = document.getElementById("pan1Info");
+        pan2Info = document.getElementById("pan2Info");
+        pan3Info = document.getElementById("pan3Info");
 
         pan1Canvas = document.getElementById("pan1Canvas");
         pan2Canvas = document.getElementById("pan2Canvas");
+        pan3Canvas = document.getElementById("pan3Canvas");
         //pan1CanvasCopy = document.getElementById("pan1CanvasCopy");
         //pan2CanvasCopy = document.getElementById("pan2CanvasCopy");
 
@@ -188,20 +207,30 @@ Site.view.Panorama = (function () {
 
         console.log(_route.points);
 
-        if (_route.points && _route.points.length > 2) {
+        if (_route.points && _route.points.length > 3) {
 
-            var i1 = 0,
-                i2 = 1,
+            var i1 = 2,
+                i2 = 2,
+                i3 = 2,
                 p1 = 'images/pano/' + _route.points[i1].panorama[0].linkage + ".jpg",
-                p2 = 'images/pano/' + _route.points[i2].panorama[0].linkage + ".jpg";
+                p2 = 'images/pano/' + _route.points[i2].panorama[0].linkage + ".jpg",
+                p3 = 'images/pano/' + _route.points[i3].panorama[0].linkage + ".jpg";
 
             _pan1 = _panorama(pan1Canvas, _pan1Container, w, h, true);
+            _pan1.infoScreen(pan1Info);
             _pan1.init(p1);
             _pan1.animate();
 
             _pan2 = _panorama(pan2Canvas, _pan2Container, w, h, false);
+            _pan2.infoScreen(pan2Info);
             _pan2.init(p2);
             _pan2.animate();
+            
+            _pan3 = _panorama(pan3Canvas, _pan3Container, w, h, false);
+            _pan3.infoScreen(pan3Info);
+            _pan3.overdraw(true);
+            _pan3.init(p3);
+            _pan3.animate();
         }
 
         _setButtonHandlers();

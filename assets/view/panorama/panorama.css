@@ -1,23 +1,41 @@
-#pan1{
-    position: absolute;
-    top: 350px;
-    left:320px;
+#panorama {
+    position: relative;
 }
-
-#pan2{
+.panorama_contents {
+    left: 340px;
     position: absolute;
-    top: 350px;
-    left:650px;
+    top: 330px;
 }
-
-.panoramaControls{
+#pan1 {
     position: absolute;
-    left:320px;
-    top:320px;
+    top: 50px;
+    left: 0px;
+}
+#pan2 {
+    position: absolute;
+    top: 50px;
+    left: 330px;
+}
+#pan3 {
+    position: absolute;
+    top: 50px;
+    left: 660px;
+}
+.panoramaControls {
+    position: absolute;
+    left: 0px;
+    top: 00px;
     min-width: 600px;
 }
-.panoramaControls a{
+.panoramaControls a {
     border: 1px solid black;
     padding: 3px;
-    
+}
+
+#pan1Info{
+    min-height: 100px;
+}
+
+#pan2Info{
+    min-height: 100px;
 }
