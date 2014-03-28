@@ -42,6 +42,30 @@ Site.view.Panorama = (function () {
             webgl = webgl,
             _infoScreen = false,
             _overdraw = false,
+            _onPanoMouseWheel = function ( event ) {
+                console.log("_onPanoMouseWheel");
+				// WebKit
+
+				if ( event.wheelDeltaY ) {
+
+					camera.fov -= event.wheelDeltaY * 0.05;
+
+				// Opera / Explorer 9
+
+				} else if ( event.wheelDelta ) {
+
+					camera.fov -= event.wheelDelta * 0.05;
+
+				// Firefox
+
+				} else if ( event.detail ) {
+
+					camera.fov += event.detail * 1.0;
+
+				}
+
+				camera.updateProjectionMatrix();
+            },
             _onPanoMouseDown = function (event) {
                 event.preventDefault();
 
@@ -75,7 +99,9 @@ Site.view.Panorama = (function () {
 
                 var material = new THREE.MeshBasicMaterial({
                     map: THREE.ImageUtils.loadTexture(imageUrl),
-                    overdraw: _overdraw
+                    overdraw: _overdraw,
+                    wireframeLinewidth :0,
+                    transparent:true
                 });
 
                 mesh = new THREE.Mesh(geometry, material);
@@ -98,6 +124,8 @@ Site.view.Panorama = (function () {
                 container.addEventListener('mousedown', _onPanoMouseDown, false);
                 container.addEventListener('mousemove', _onPanoMouseMove, false);
                 container.addEventListener('mouseup', _onPanoMouseUp, false);
+                container.addEventListener( 'mousewheel', _onPanoMouseWheel, false );
+                container.addEventListener( 'DOMMouseScroll', _onPanoMouseWheel, false);
             },
             _update = function () {
                 lat = Math.max(-85, Math.min(85, lat));
