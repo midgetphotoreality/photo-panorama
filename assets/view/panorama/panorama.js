@@ -4,7 +4,7 @@ Site.view.Panorama = (function () {
         _pan1Container, _pan2Container,
         pan1ContainerCopy, pan2ContainerCopy,
         pan1Canvas, pan2Canvas,
-        pan1CanvasCopy, pan2CanvasCopy,
+        //pan1CanvasCopy, pan2CanvasCopy,
         _route,
         btnSnapShot, btnClose,
         w = 300,
@@ -80,6 +80,7 @@ Site.view.Panorama = (function () {
                 scene.add(mesh);
                 if (webgl) {
                     renderer = new THREE.WebGLRenderer({
+                        preserveDrawingBuffer: true,
                         canvas: canvas
                     });
                 } else {
@@ -87,7 +88,7 @@ Site.view.Panorama = (function () {
                         canvas: canvas
                     });
                 }
-                
+
                 renderer.setSize(_w, _h);
                 container.appendChild(renderer.domElement);
 
@@ -129,16 +130,23 @@ Site.view.Panorama = (function () {
     //data:image/gif;base64,
     var _snapShot = function () {
         console.log("Site.view.Panorama -> _snapShot()");
+        /*
         var ctx1 = pan1CanvasCopy.getContext('2d');
         ctx1.drawImage(pan1Canvas, w, h);
         var ctx2 = pan2CanvasCopy.getContext('2d');
         ctx2.drawImage(pan2Canvas, w, h);
 
         console.log(pan1Canvas.toDataURL("image/jpeg"));
-        var img = document.createElement('img');
+        
+        */
+        var img;
+        img = document.createElement('img');
         img.src = pan1Canvas.toDataURL("image/jpeg");
-
         pan1ContainerCopy.appendChild(img);
+        
+        img = document.createElement('img');
+        img.src = pan2Canvas.toDataURL("image/jpeg");
+        pan2ContainerCopy.appendChild(img);
         //document.getElementById('pan1ImageCopy').src = pan1Canvas.toDataURL("image/jpeg");
         //document.getElementById('pan2ImageCopy').src = pan2Canvas.toDataURL("image/jpeg");
 
@@ -162,18 +170,18 @@ Site.view.Panorama = (function () {
 
         pan1Canvas = document.getElementById("pan1Canvas");
         pan2Canvas = document.getElementById("pan2Canvas");
-        pan1CanvasCopy = document.getElementById("pan1CanvasCopy");
-        pan2CanvasCopy = document.getElementById("pan2CanvasCopy");
+        //pan1CanvasCopy = document.getElementById("pan1CanvasCopy");
+        //pan2CanvasCopy = document.getElementById("pan2CanvasCopy");
 
         btnSnapShot = document.getElementById("btnSnapShot");
         btnClose = document.getElementById("btnClose");
-
+/*
         pan1CanvasCopy.width = w;
         pan1CanvasCopy.height = h;
 
         pan2CanvasCopy.width = w;
         pan2CanvasCopy.height = h;
-
+*/
         Site.AnimationManager.genContentInit(_divAsset);
 
         _route = HOSPITALS.MapsContainer.selectedRoute();
@@ -181,17 +189,17 @@ Site.view.Panorama = (function () {
         console.log(_route.points);
 
         if (_route.points && _route.points.length > 2) {
-            
-            var i1 = 1,
+
+            var i1 = 0,
                 i2 = 1,
                 p1 = 'images/pano/' + _route.points[i1].panorama[0].linkage + ".jpg",
                 p2 = 'images/pano/' + _route.points[i2].panorama[0].linkage + ".jpg";
 
-            _pan1 = _panorama(pan1Canvas, _pan1Container, w, h,true);
+            _pan1 = _panorama(pan1Canvas, _pan1Container, w, h, true);
             _pan1.init(p1);
             _pan1.animate();
 
-            _pan2 = _panorama(pan2Canvas, _pan2Container, w, h,false);
+            _pan2 = _panorama(pan2Canvas, _pan2Container, w, h, false);
             _pan2.init(p2);
             _pan2.animate();
         }
