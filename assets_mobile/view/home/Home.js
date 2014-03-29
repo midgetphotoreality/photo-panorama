@@ -1,14 +1,22 @@
-SHeemstede.view.Home = (function() {
-	var _divAsset,theWidth,margin;
+Site.view.Home = (function() {
+	var _divAsset,theWidth,margin,btnPanorama;
 
 
 	/*__FUNCTIONS_____________________________________________________________________________________________________*/
 
 	/*__CORE_FUNCTIONS________________________________________________________________________________________________*/
+	var _setButtonHandlers = function() {
+        btnPanorama.onclick = function(){
+            Core.managers.NavigationManager.showAsset(Site.Setup.content.Panorama);
+        }
+    }
 	var _init = function() {
-		Core.debug.log("SHeemstede.view.Home -> _init()");
+		Core.debug.log("Site.view.Home -> _init()");
 		_divAsset = document.getElementById("Home");
-		SHeemstede.AnimationManager.genContentInit(_divAsset);
+		btnPanorama = document.getElementById("btnPanorama");
+        
+        _setButtonHandlers();
+		Site.AnimationManager.genContentInit(_divAsset);
 		Core.dom.addClass(document.getElementById('floor2Text'),"hidden");
 		var _itemSpace = 10;
 		document.getElementById('map1').style.top = parseInt(document.getElementById('floor1Text').offsetHeight)+_itemSpace+"px" ;
@@ -36,22 +44,22 @@ SHeemstede.view.Home = (function() {
          });
         
         
-		SHeemstede.Menu.buildMenu();
+		Site.Menu.buildMenu();
 	}
 
 	var _show = function() {
-		Core.debug.log("SHeemstede.view.Home1 -> _show()");
-		SHeemstede.AnimationManager.genContentShow(_divAsset);
+		Core.debug.log("Site.view.Home1 -> _show()");
+		Site.AnimationManager.genContentShow(_divAsset);
 	}
 
 	var _hide = function(callback) {
-		Core.debug.log("SHeemstede.view.Home1 -> _hide()");
-		SHeemstede.AnimationManager.genContentHide(_divAsset, callback);
+		Core.debug.log("Site.view.Home1 -> _hide()");
+		Site.AnimationManager.genContentHide(_divAsset, callback);
 	}
 
 	var _remove = function() {
-		Core.debug.log("SHeemstede.view.Home1 -> _remove()");
-		SHeemstede.Setup.content.Home.removeView(SHeemstede.view.Home);
+		Core.debug.log("Site.view.Home1 -> _remove()");
+		Site.Setup.content.Home.removeView(Site.view.Home);
 		_divAsset = null;
 	}
 
@@ -65,4 +73,4 @@ SHeemstede.view.Home = (function() {
 	}
 	return _public;
 })();
-SHeemstede.Setup.content.Home.addView(SHeemstede.view.Home);
+Site.Setup.content.Home.addView(Site.view.Home);
